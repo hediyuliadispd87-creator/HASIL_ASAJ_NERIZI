@@ -315,6 +315,23 @@
   .btn-excel:hover  { background: #15803d; border-color: #15803d; box-shadow: 0 4px 14px rgba(22,163,74,.3); }
   .btn-excel:disabled { opacity: .55; cursor: not-allowed; pointer-events: none; }
 
+  /* ── TOMBOL ANALISIS BUTIR SOAL ── */
+  .btn-analisis {
+    background: #9333ea;
+    color: #fff;
+    border-color: #9333ea;
+    box-shadow: 0 2px 8px rgba(147,51,234,.22);
+    position: relative; overflow: hidden;
+  }
+  .btn-analisis::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,.12) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .btn-analisis:hover  { background: #7e22ce; border-color: #7e22ce; box-shadow: 0 4px 14px rgba(147,51,234,.3); }
+  .btn-analisis:disabled { opacity: .55; cursor: not-allowed; pointer-events: none; }
+
   /* Icon khusus Excel */
   .excel-icon {
     display: inline-flex; align-items: center; justify-content: center;
@@ -619,6 +636,10 @@
                   onclick="exportToExcel()" title="Unduh ke Excel (.xlsx)">
             <i class="excel-icon">XL</i>
             <span class="excel-text">Excel</span>
+          </button>
+
+          <button class="btn-action btn-analisis" onclick="openAnalisisButiSoal()" title="Buka halaman Analisis Butir Soal">
+            📊 <span>Analisis</span>
           </button>
         </div>
       </div>
@@ -1243,6 +1264,11 @@
     URL.revokeObjectURL(url);
 
     toast('success','CSV Diunduh',`${filteredData.length} record → ${filename}`);
+  }
+
+  function openAnalisisButiSoal() {
+    const url = 'https://hediyuliadispd87-creator.github.io/ANALISIS_BUTIR_SOAL_NERIZI/';
+    window.open(url, '_blank');
   }
 
   /* ═════════════════════════════════════════════════════
